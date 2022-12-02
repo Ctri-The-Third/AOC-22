@@ -10,11 +10,14 @@ class problem():
         self._file_out = file_out
         if file_in is None:
             try:
-                file_in = sys.argv[0] 
+                file_in = sys.argv[1] 
             except (IndexError, KeyError) as err:
                 self._logger.warning("Couldn't get filepath from passed args. Failure likely. %s",err) 
         
         self.problem = self._load_file(file_in)
+        for line in self.problem:
+            
+            line.removesuffix(r"\\n")
         self.solution = ""
 
     def solve(self):
@@ -26,7 +29,11 @@ class problem():
 
 
     def _load_file(self, file_path):
-        with open(file_path,"r",encoding="utf-8")  as file:
-            return file.readlines()
-
+        if not file_path or not isinstance(file_path,str):
+            self._logger.error("Can't load problem filepath %s because it's not a string", file_path)
+        try:
+            with open(file_path,"r",encoding="utf-8")  as file:
+                return file.read().splitlines()
+        except FileNotFoundError as err:
+            self._logger.error("File [%s] not found",file_path)
 
