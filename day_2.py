@@ -6,7 +6,7 @@ ROCK = "X"
 PAPER = "Y"
 SCISSORS = "Z"
 SCORES = {ROCK:1,PAPER:2,SCISSORS:3}
-class day_2(problem):
+class Day_2(problem):
     def __init__(self, logger_name, file_in=None, file_out=None) -> None:
         super().__init__(logger_name, file_in, file_out)
         self.your_score = 0
@@ -68,7 +68,7 @@ def outcome(yours,theirs):
         return 0 
 
 if __name__ == "__main__":
-    day = day_2("day_2","problems\day2_input.txt")
+    day = Day_2("day_2",r"problems\day2_input.txt")
     
     print(day.solve())
 

@@ -1,7 +1,7 @@
 from day_0 import problem
 
 
-class day_1(problem):
+class Day_1(problem):
     def __init__(self, file_in=None, file_out=None) -> None:
         super().__init__("day_1", file_in, file_out)
         self.max_cal = 0 
@@ -15,7 +15,6 @@ class day_1(problem):
         self.third_max = 0
         cur_cal = 0 
         for line in self.problem:
-            line = line.strip()
             if line == "":
                 self.update_cals(cur_cal)
                 cur_cal = 0 
@@ -39,6 +38,5 @@ class day_1(problem):
             self.third_max = cal
 
 if __name__ == "__main__":
-    day = day_1("problems\day1_input.txt")
-    
+    day = Day_1(r"problems\day1_input.txt")
     print(day.solve())
