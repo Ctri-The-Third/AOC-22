@@ -39,5 +39,5 @@ class Day_1(problem):
             self.third_max = cal
 
 if __name__ == "__main__":
-    day = Day_1(r"problems\day1_input.txt")
+    day = Day_1()
     print(day.solve())
