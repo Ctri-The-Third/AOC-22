@@ -11,7 +11,7 @@ from models.day_0 import problem
 def test_load_file():
     logging.basicConfig(level=logging.DEBUG)
 
-    prb = problem("test_problem","problems\day1_sample.txt")
+    prb = problem("test_problem","problems/day1_sample.txt")
     assert len(prb.problem) > 0
 
 
