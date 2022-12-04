@@ -7,6 +7,7 @@ class Day_1(problem):
         self.max_cal = 0 
         self.sec_max = 0
         self.third_max = 0
+        
 
 
     def solve(self):

@@ -31,7 +31,7 @@ class problem():
         return self.solution 
 
 
-    def _load_file(self, file_path):
+    def _load_file(self, file_path) -> list :
         #stops the method crashing if None is passed in, or something weird like an int
         if not file_path or not isinstance(file_path,str):
             self._logger.error("Can't load problem filepath %s because it's not a string", file_path)
@@ -44,6 +44,8 @@ class problem():
                 return file.read().splitlines()
         except FileNotFoundError:
             self._logger.error("File [%s] not found",file_path)
+
+        return [] 
 
 
 
