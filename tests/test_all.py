@@ -1,10 +1,18 @@
 import sys 
 import pytest
-
+import logging
 #weird thing to support vscode's built in handling of pytest
 sys.path.append("")
 
 from models.day_0 import problem
+
+
+
+def test_load_file():
+    logging.basicConfig(level=logging.DEBUG)
+
+    prb = problem("test_problem","problems\day1_sample.txt")
+    assert len(prb.problem) > 0
 
 
 def test_day_1():
