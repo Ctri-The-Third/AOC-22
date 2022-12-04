@@ -1,4 +1,4 @@
-from day_0 import problem
+from models.day_0 import problem
 
 MAP = {"A":"X","B":"Y","C":"Z"}
 OUTCOMES = {"X":0,"Y":1,"Z":2}
@@ -7,8 +7,8 @@ PAPER = "Y"
 SCISSORS = "Z"
 SCORES = {ROCK:1,PAPER:2,SCISSORS:3}
 class Day_2(problem):
-    def __init__(self, logger_name, file_in=None, file_out=None) -> None:
-        super().__init__(logger_name, file_in, file_out)
+    def __init__(self,  file_in=None, file_out=None) -> None:
+        super().__init__("day_2", file_in, file_out)
         self.your_score = 0
         self.your_part2_score = 0
 
