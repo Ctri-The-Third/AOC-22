@@ -42,6 +42,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
           pip install -r requirements.txt
+      - name: list file content
+        run: |
+          ls
+          ls problems 
+          ls models
       #- name: Install hex helper
       #  run: |
       #    wget https://github.com/Ctri-The-Third/ServiceHelpers/releases/download/v2.4.0/hex_helpers-2.4.0-py3-none-any.whl -O hex_helpers-latest-py3-none-any.whl
