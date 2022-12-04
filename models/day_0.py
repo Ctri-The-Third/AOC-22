@@ -48,9 +48,14 @@ class problem():
 
 
 if __name__ == "__main__":
+    #run them all! :) 
     import day_1
     day = day_1.Day_1(r"problems\day1_input.txt")
     print(day.solve())
     import day_2
     day = day_2.Day_2(r"problems\day2_input.txt")
     print(day.solve())
+
+
+
+    print(open("filename","r").readlines())

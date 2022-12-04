@@ -1,4 +1,4 @@
-from day_0 import problem
+from models.day_0 import problem
 
 
 class Day_1(problem):
