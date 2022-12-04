@@ -22,9 +22,7 @@ jobs:
     # The type of runner that the job will run on
     
     runs-on: ubuntu-latest
-    environment: 
-      name: test environment
-      url: none
+
     #env:
     #  SECRET: ${{ secrets.SECRET_NAME}}
       
