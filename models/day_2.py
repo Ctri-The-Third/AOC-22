@@ -68,9 +68,7 @@ def outcome(yours,theirs):
         return 0 
 
 if __name__ == "__main__":
-    day = Day_2("day_2",r"problems\day2_input.txt")
-    
+    day = Day_2()
     print(day.solve())
-
 
 
