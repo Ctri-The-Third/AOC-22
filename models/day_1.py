@@ -11,9 +11,7 @@ class Day_1(problem):
 
 
     def solve(self):
-        self.max_cal = 0 
-        self.sec_max = 0
-        self.third_max = 0
+        self.max_cal = self.sec_max = self.third_max = 0 
         cur_cal = 0 
         for line in self.problem:
             if line == "":

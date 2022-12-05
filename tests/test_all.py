@@ -28,9 +28,23 @@ def test_day_2():
     day:problem 
     assert day.solve() == "15,12"
 
-@pytest.mark.skip
 def test_day_3():
-    pass 
+    from models.day_3 import Day_3
+    day = Day_3(r"problems/day3_sample.txt")
+    day:problem 
+    assert day.solve() == "157,70"
+
+
+def test_day_3_functions():
+    import models.day_3 as d3
+    assert d3.convert_char_to_int("b") == 2
+    assert d3.convert_char_to_int("B") == 28
+    assert d3.convert_char_to_int(0) == -1 
+    assert d3.convert_char_to_int([]) == -1 
+
+    assert d3.find_match("abc","cde") == "c"
+    assert d3.find_badge(["aaaaaaabcABC","ccccccdeCD","eeffcEE"]) == "c"
+    
 
 @pytest.mark.skip
 def test_day_4():
