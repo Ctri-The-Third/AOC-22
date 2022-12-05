@@ -46,8 +46,10 @@ def test_day_3_functions():
     assert d3.find_badge(["aaaaaaabcABC","ccccccdeCD","eeffcEE"]) == "c"
     
 
-@pytest.mark.skip
 def test_day_4():
-    pass 
+    from models.day_4 import Day_4
+    day = Day_4(r"problems/day4_sample.txt")
+    day:problem
+    assert day.solve() == "2,"
     
 
