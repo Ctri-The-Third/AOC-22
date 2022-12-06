@@ -51,3 +51,9 @@ def test_day_4():
     pass 
     
 
+
+def test_day_5():
+    from models.day_5 import Day_5
+    day = Day_5(r"problems/day5_sample.txt")
+    day:problem
+    assert day.solve() == "CMZ"
