@@ -50,6 +50,6 @@ def test_day_4():
     from models.day_4 import Day_4
     day = Day_4(r"problems/day4_sample.txt")
     day:problem
-    assert day.solve() == "2,"
+    assert day.solve() == "2,4"
     
 

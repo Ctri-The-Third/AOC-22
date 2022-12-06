@@ -21,17 +21,24 @@ class Day_4(problem):
 
     def solve(self):
         total_overlap = 0 
+        partial_overlap = 0 
         for pair in self.section_pairs:
-            if pair[0]["min"] >= pair[1]["min"] and pair[0]["max"] <= pair[1]["max"]:
-                total_overlap += 1
-            elif pair[1]["min"] >= pair[0]["min"] and pair[1]["max"] <= pair[0]["max"]:
-                total_overlap += 1
-            #partial overlaps go here 
 
-        self.solution = f"{total_overlap},"
+            pair_1 = set(range(pair[0]["min"],pair[0]["max"]+1,1))
+            pair_2 = set(range(pair[1]["min"],pair[1]["max"]+1,1))
+            inter = pair_1.intersection(pair_2) if len (pair_1) >= len(pair_2) else pair_2.intersection(pair_1)
+
+
+            if len(inter) == len(pair_1) or len(inter) == len(pair_2):
+                total_overlap += 1
+            elif len(inter)> 0:
+                partial_overlap += 1
+        self.solution = f"{total_overlap},{total_overlap+partial_overlap}"
         return super().solve()
 
-
+#01234567890
+#..234......
+#......678..
 
 if __name__ == "__main__":
     day = Day_4(r"problems/day4_input.txt")
