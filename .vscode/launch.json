@@ -17,7 +17,6 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/main.py",
-            "cwd": "${fileDirname}",
             "console": "integratedTerminal",
             "justMyCode": true
         }

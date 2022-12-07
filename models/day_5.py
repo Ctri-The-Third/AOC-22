@@ -11,12 +11,16 @@ class Day_5(problem):
         self.instructions = [] # e.g. move 1 from 2 to 1
 
         self.preprocess_instructions()
-        self.solve()
     def preprocess_instructions(self):
+        "parse the file appropriately, sets up a variable number of stacks"
         stack_instruction_re = re.compile(r" *\[[A-Z]\] *")
         instructions_re = re.compile(r"move ([0-9]+) from ([0-9]+) to ([0-9]+)")
         stack_definition_line_re = re.compile(r"( ([0-9])  ?)")
         loading_stacks = True
+        self.stacks = []
+        self.stack_instructions = [] 
+        self.instructions = [] 
+                
         for line in self.problem:
 
             if loading_stacks and stack_instruction_re.match(line):
@@ -27,12 +31,13 @@ class Day_5(problem):
                 found = stack_definition_line_re.findall(line)
                 #define the number of stacks based on the count of matches
                 for _ in found:
-                    self.stacks.append(Stack())
+                    self.stacks.append(list())
                 loading_stacks = False
          
         boxes_split_re = re.compile(r".{3,4}")
         get_label_re = re.compile(r"\[([A-Z]+)\]")
         
+        self.stack_instructions.reverse()
         for stack_instruction in self.stack_instructions:
             labels = boxes_split_re.findall(stack_instruction)
              
@@ -42,44 +47,62 @@ class Day_5(problem):
                 label_matches = get_label_re.findall(label_text)
                 if label_matches:
                     stack = self.stacks[stack_index]
-                    stack:Stack
-                    box = Box(label_matches[0])
-                    stack.add_box(box)
-
+                    stack:list
+                    box = label_matches[0]
+                    stack.append(box)
 
     
     def solve(self):
-        for stack in self.stacks:
-            stack:Stack
-            print("stack --")
-            for box in stack.boxes:
-                print(f"|_[{box.label}]")
-
+        p1 = self.real_solve()
+        self.preprocess_instructions()
+        
+        p2 = self.real_solve(False)
+        self.solution = f"{p1},{p2}"
         return super().solve()
 
+    def real_solve(self, one_at_a_time = True):
+        instr_splitter = re.compile("move ([0-9]+) from ([0-9]+) to ([0-9]+)")
+        self._print_out("initial state")
+        for instruction in self.instructions:
+            pieces = instr_splitter.findall(instruction)
+            qty = int(pieces[0][0])
+            src = int(pieces[0][1])-1
+            dst = int(pieces[0][2])-1
+
+            crane_contents = [] 
+            for _ in range(qty):
+                moved_box = self.stacks[src].pop()
+                crane_contents.append(moved_box)
+            
+            if not one_at_a_time:
+                crane_contents.reverse()
+            for box in crane_contents:
+                self.stacks[dst].append(box)
+            self._print_out(instruction)
+
+        out = ""        
+        for stack in self.stacks:
+            out += stack.pop()
+        
+        return out
 
 
 
-
-
-class Box():
-    def __init__(self,letter:str) -> None:
-        self.label = letter
-    def __str__(self) -> str:
-        return f"{self.label}"
-    
-
-class Stack():
-    def __init__(self) -> None:
-        self.boxes = []
-
-    def add_box(self, box:Box):
-        self.boxes.append(box)
-        return None 
-
-    def lift_one_box(self, count=1) -> Box:
-        box = self.boxes[0]
-        self.boxes.pop(0)
-        return box
-
+    def _print_out(self, instruction):
+            "debug method, outputs the crates in the format described in the problem"
+            return 
+            print(instruction)
+            
+            max_len = 0 
+            for stack in self.stacks:
+                max_len = max(len(stack), max_len)
+            for _ in range(max_len,-1,-1):
+                out_str = ""
+                for stack in self.stacks:
+                    try: 
+                        out_str += stack[_]
+                    except IndexError:
+                        out_str += " "
+                print(out_str)    
+            print("123456789")   
     

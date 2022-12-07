@@ -1,6 +1,6 @@
 import models.day_0
-import models.day_1, models.day_2, models.day_3
-import models.day_4
+import models.day_1, models.day_2, models.day_3, models.day_4
+import models.day_5
 if __name__ == "__main__":
     d1 = models.day_1.Day_1("problems/day1_input.txt")
     print(f"Day 1: {d1.solve()}" )
@@ -11,3 +11,7 @@ if __name__ == "__main__":
 
     d4 = models.day_4.Day_4("problems/day4_input.txt")
     print(f"Day 4: {d4.solve()}" )
+    d5 = models.day_5.Day_5("problems/day5_input.txt")
+    print(f"Day 5: {d5.solve()}" )
+
+
