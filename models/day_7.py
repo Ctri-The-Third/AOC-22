@@ -1,7 +1,7 @@
 from models.day_0 import problem
 import re
 
-
+ 
 class Day_7(problem):
     def __init__(self,  file_in=None, file_out=None) -> None:
         super().__init__("day_7", file_in, file_out)
@@ -59,13 +59,12 @@ class Day_7(problem):
         
         
         p2_matching_directories = []
-        self.assess(self.directories, p2_matching_directories, min_size=     ) 
-        
-        all_dirs = [] 
-        
-        self.assess(self.directories,all_dirs, min_size= 0 )
-        for dir in all_dirs:
-            print(dir)
+
+        root_folder = self.directories
+        root_folder:Folder
+        p2_target_folder_size = 30000000 - (70000000 - root_folder.total_size)
+        self.assess(self.directories, p2_matching_directories, min_size=  p2_target_folder_size   ) 
+
         tar_dir_size = max(p2_matching_directories)
         for item in p2_matching_directories:
             
