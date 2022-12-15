@@ -79,3 +79,19 @@ def test_day_7():
     day:problem
 
     assert day.solve() == "95437,24933642"
+
+
+def test_day_8_functions():
+    from models.day_8 import Day_8, Tree
+    day = Day_8(r"problems/day8_sample.txt")
+
+    day.check_row(0,1)
+    for tree in day.grid[0]:
+        tree:Tree
+        print(tree.visible)
+
+    assert day.grid[0][0].visible
+    assert not day.grid[0][1].visible  
+    assert not day.grid[0][2].visible
+    assert day.grid[0][3].visible
+    assert not day.grid[0][4].visible
