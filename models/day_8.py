@@ -32,6 +32,7 @@ class Day_8(problem):
 
 
     def check_row(self, row_index:int, direction:int):
+        #visibility should NOT be the default? need brain think.  🤔
         row = self.grid[row_index]
         if direction < -1 or direction > 1:
             raise ValueError
