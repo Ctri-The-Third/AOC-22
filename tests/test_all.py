@@ -59,3 +59,23 @@ def test_day_5():
     day = Day_5(r"problems/day5_sample.txt")
     day:problem
     assert day.solve() == "CMZ,MCD"
+
+
+def test_day_6():
+    from models.day_6 import Day_6
+    day = Day_6(r"problems/day6_sample.txt")
+    day:problem
+    
+    assert day.solve() == "11,26"
+    assert day.solve() == "10,29"
+    assert day.solve() == "6,23"
+    assert day.solve() == "5,23"
+    assert day.solve() == "7,19"
+
+
+def test_day_7():
+    from models.day_7 import Day_7
+    day = Day_7(r"problems/day7_sample.txt")
+    day:problem
+
+    assert day.solve() == "95437,24933642"
